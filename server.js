@@ -28,8 +28,10 @@ app.get("/books", function(req, res) {
   res.render("index", { databooks: db.get("databooks").value() });
 });
 app.post("/books", function(req, res) {
-  console.log(req.body);
-  // res.redirect('/books');
+  db.get('databooks')
+  .push(req.body)
+  .write();
+  res.redirect('/books');
 });
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
