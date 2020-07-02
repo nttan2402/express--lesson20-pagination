@@ -5,17 +5,24 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 var express = require("express");
 var app = express();
+var low = require('lowdb')
+var FileSync = require('lowdb/adapters/FileSync')
+
+var adapter = new FileSync('db.json')
+var db = low(adapter)
 
 // our default array of dreams
 var books = [
-  "GOD Father",
-  "Climb a really tall mountain",
-  "Wash the dishes"
+  {title: "GOD Father", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+  {title: "GOD Father", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"},
+  {title: "GOD Father", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
 ];
-app.set('views', './views')
-app.set('view engine', 'pug')
-app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!' })
+// db.defaults({ databooks: [], user: {}, count: 0 })
+//   .write()
+app.set('views', './views');
+app.set('view engine', 'pug');
+app.get('/books', function (req, res) {
+  res.render('index', { databooks: books })
 })
 
 
