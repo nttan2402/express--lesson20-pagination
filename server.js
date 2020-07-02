@@ -34,10 +34,13 @@ app.post("/books", function(req, res) {
   res.redirect('/books');
 });
 app.post("/books/update/:title", function(req, res){
-  var title = req.body.title //{title: abc}
-  console.log('title', title)
-  var value =  db.get("databooks").value();
-  console.log(value)
+  var newdata = req.body.title //{title: abc}
+  console.log('title', newdata)
+  db.update("databooks", function(newdata){
+    return title = newdata;
+  })
+  // var value =  db.get("databooks").find({title: title}).value();
+  // console.log('value', value)
 })
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
