@@ -9,7 +9,7 @@ each val in databooks
     span 
       form(action="/books/update/" + val.title, method="POST")
         label New title : 
-        input(type="text", name="title", value="something new" )
+        input(type="text", name="title", value="Write something here" )
         br
         button UPDATE
       form(action="/books/delete/" + val.title, method="POST")
