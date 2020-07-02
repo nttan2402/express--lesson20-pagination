@@ -35,16 +35,18 @@ app.post("/books", function(req, res) {
 });
 app.post("/books/update/:title", function(req, res) {
   var olddata = req.params.title;
-  console.log("old data", olddata);
   var newdata = req.body.title; //{title: abc}
-  console.log("title", newdata);
   db.get("databooks")
     .find({ title: olddata })
     .assign({ title: newdata })
     .write();
-  res.redirect('/books')
+  res.redirect('/books');
 });
-  
+app.post("/books/delete/:title",function(req, res){
+  var title = req.params.title;
+  db.get("databooks").remove({title: title}).write();
+  res.redirect('/books');
+})
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
