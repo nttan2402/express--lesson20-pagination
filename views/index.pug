@@ -1,8 +1,14 @@
-h1 hello
 
-h3 library
+h1 Library
 
-div Books:
-  ul
-  each val in databooks
-    li= val
+h3 Books:
+ul
+each val in databooks
+  li= val.title
+br
+h3 Add Book:
+br
+form(action="/books", method="POST")
+label Title: 
+
+input(type="text")
