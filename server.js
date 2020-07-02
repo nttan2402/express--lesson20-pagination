@@ -3,30 +3,21 @@
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
-const express = require("express");
-const app = express();
+var express = require("express");
+var app = express();
 
 // our default array of dreams
-const dreams = [
-  "Find and count some sheep",
+var books = [
+  "GOD Father",
   "Climb a really tall mountain",
   "Wash the dishes"
 ];
+app.set('views', './views')
+app.set('view engine', 'pug')
+app.get('/', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
+})
 
-// make all the files in 'public' available
-// https://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"));
-
-// https://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
-});
-
-// send the default array of dreams to the webpage
-app.get("/dreams", (request, response) => {
-  // express helps us take JS objects and send them as JSON
-  response.json(dreams);
-});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
