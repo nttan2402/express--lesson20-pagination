@@ -6,9 +6,13 @@ ul
 each val in databooks
   li= val.title
     span 
-      form(action="/books/update", method="post")
+      form(action="/books/update/" + val.title, method="POST")
+        label New title : 
+        input(type="text", name="title")
+        br
         button UPDATE
-      form(action="/books/delete/:title", method="post")
+      form(action="/books/delete/" + val.title, method="POST")
+        label Delete : 
         button DELETE
 br
 h3 Add Book:

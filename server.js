@@ -29,10 +29,14 @@ app.get("/books", function(req, res) {
 });
 app.post("/books", function(req, res) {
   db.get('databooks')
-  .push(req.body)
+  .push(req.body)// {title:abc, description:"something"}
   .write();
   res.redirect('/books');
 });
+app.post("/books/update/:title", function(req, res){
+  var title = req.body.title //{title: abc}
+  db.get("databooks")
+})
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
