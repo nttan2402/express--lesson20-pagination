@@ -2,6 +2,7 @@
 h1 Library
 
 h3 Books:
+b
 ul
 each val in databooks
   li= val.title
@@ -12,7 +13,8 @@ each val in databooks
         br
         button UPDATE
       form(action="/books/delete/" + val.title, method="POST")
-        label Delete : 
+        label Delete :
+        br
         button DELETE
 br
 h3 Add Book:

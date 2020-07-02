@@ -20,28 +20,31 @@ db.defaults({
     { title: "GOD Father", description: "Lorem ipsum dolor sit amet" }
   ]
 }).write();
-app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true }));
 app.set("views", "./views");
 app.set("view engine", "pug");
 app.get("/books", function(req, res) {
   res.render("index", { databooks: db.get("databooks").value() });
 });
 app.post("/books", function(req, res) {
-  db.get('databooks')
-  .push(req.body)// {title:abc, description:"something"}
-  .write();
-  res.redirect('/books');
+  db.get("databooks")
+    .push(req.body) // {title:abc, description:"something"}
+    .write();
+  res.redirect("/books");
 });
-app.post("/books/update/:title", function(req, res){
-  var newdata = req.body.title //{title: abc}
-  console.log('title', newdata)
-  db.update("databooks", function(newdata){
-    return title = newdata;
-  })
-  // var value =  db.get("databooks").find({title: title}).value();
-  // console.log('value', value)
-})
+app.post("/books/update/:title", function(req, res) {
+  var olddata = req.params.title;
+  console.log("old data", olddata);
+  var newdata = req.body.title; //{title: abc}
+  console.log("title", newdata);
+  db.get("databooks")
+    .find({ title: olddata })
+    .assign({ title: newdata })
+    .write();
+  res.redirect('/books')
+});
+  
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
