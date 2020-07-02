@@ -7,8 +7,15 @@ each val in databooks
   li= val.title
 br
 h3 Add Book:
-br
 form(action="/books", method="POST")
-label Title: 
-
-input(type="text")
+  label Title: 
+  br
+  input(type="text", name="title")
+  br
+  br
+  label Description:
+  br
+  input(type="text", name="description")
+  br
+  br
+  button ADD
