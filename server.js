@@ -35,7 +35,9 @@ app.post("/books", function(req, res) {
 });
 app.post("/books/update/:title", function(req, res){
   var title = req.body.title //{title: abc}
-  db.get("databooks")
+  console.log('title', title)
+  var value =  db.get("databooks").value();
+  console.log(value)
 })
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
