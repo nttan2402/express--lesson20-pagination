@@ -5,6 +5,11 @@ h3 Books:
 ul
 each val in databooks
   li= val.title
+    span 
+      form(action="/books/update", method="post")
+        button UPDATE
+      form(action="/books/delete/:title", method="post")
+        button DELETE
 br
 h3 Add Book:
 form(action="/books", method="POST")
