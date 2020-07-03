@@ -20,6 +20,7 @@ db.defaults({
     { title: "GOD Father", description: "Lorem ipsum dolor sit amet" }
   ]
 }).write();
+
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
 app.set("views", "./views");
@@ -27,12 +28,14 @@ app.set("view engine", "pug");
 app.get("/books", function(req, res) {
   res.render("index", { databooks: db.get("databooks").value() });
 });
+
 app.post("/books", function(req, res) {
   db.get("databooks")
     .push(req.body) // {title:abc, description:"something"}
     .write();
   res.redirect("/books");
 });
+
 app.post("/books/update/:title", function(req, res) {
   var olddata = req.params.title;
   var newdata = req.body.title; //{title: abc}
@@ -42,6 +45,7 @@ app.post("/books/update/:title", function(req, res) {
     .write();
   res.redirect('/books');
 });
+
 app.post("/books/delete/:title",function(req, res){
   var title = req.params.title;
   db.get("databooks").remove({title: title}).write();
