@@ -5,8 +5,10 @@ ul
   each val in users
     li= val.name
     span
-      a(href="/users/delete/" + val.name) Delete 
-      span &nbsp
-      a(href="/users/update/" + val.name) Update
+      form(action="/users/delete/" + val.name, method="POST")
+        button DELETE
+      form(action="/users/update/" + val.name, method="GET")
+        button UPDATE
+      
 a(href="/users/create") Add users
 
