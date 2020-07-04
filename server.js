@@ -59,9 +59,10 @@ app.post("/books/delete/:title",function(req, res){
 app.get("/users", function(req, res) {
   res.render("users", { users: db.get("users").value() });
 });
-app.get("/users/update/:" + val.name), function(req, res){
-  res.render("update", )
-})
+app.get("/users/update/:name" , function(req, res){
+  var name = 
+  res.render("update", {name:})
+});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
