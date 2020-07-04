@@ -65,18 +65,22 @@ app.get("/users/update/:name" , function(req, res){
 });
 app.post("/users/update/:name", function(req, res){
   var oldname = req.params.name;
-  var oldage = req.params.age;
   var newname = req.body.name; //{name: abc}
   var newage = req.body.age; //{age: abc}
+
     db.get("users")
-    .find({ title: oldname })
-    .assign({ title: newname })
+    .find({ name: oldname })
+    .assign({ name: newname,
+              age: newage })
     .write();
-    db.get("users")
-      .find({ title: oldage })
-      .assign({ title: newage })
-      .write();
+
   res.redirect('/users');
+})
+
+app.post("/user/delete/:name",function(req, res){
+  var oldname = req.params.name;
+  db.get("users").remove(oldname).write()
+  res.redirect('')
 })
 
 // listen for requests :)
