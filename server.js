@@ -18,6 +18,10 @@ db.defaults({
     { title: "GOD Father", description: "Lorem ipsum dolor sit amet" },
     { title: "GOD Father", description: "Lorem ipsum dolor sit amet" },
     { title: "GOD Father", description: "Lorem ipsum dolor sit amet" }
+  ],
+  users: [
+    {name:"Tan", age: 21},
+    {name:"Nam", age: 21}
   ]
 }).write();
 
@@ -53,7 +57,7 @@ app.post("/books/delete/:title",function(req, res){
 })
 //Users
 app.get("/users", function(req, res) {
-  res.render("users", { databooks: db.get("databooks").value() });
+  res.render("users", { users: db.get("users").value() });
 });
 
 // listen for requests :)
