@@ -1,14 +1,15 @@
 var express = require('express')
 var router = express.Router()
+var db = require('./db');
 
 router.get("/users", function(req, res) {
   res.render("users", { users: db.get("users").value() });
 });
-router.get("/users/update/:name", function(req, res) {
+router.get("/update/:name", function(req, res) {
   var name = req.params.name;
   res.render("update", { name: name });
 });
-router.post("/users/update/:name", function(req, res) {
+router.post("/update/:name", function(req, res) {
   var oldname = req.params.name;
   var newname = req.body.name; //{name: abc}
   var newage = req.body.age; //{age: abc}
@@ -21,7 +22,7 @@ router.post("/users/update/:name", function(req, res) {
   res.redirect("/users");
 });
 
-router.post("/users/delete/:name", function(req, res) {
+router.post("/delete/:name", function(req, res) {
   var oldname = req.params.name;
   db.get("users")
     .remove({ name: oldname })
@@ -29,10 +30,10 @@ router.post("/users/delete/:name", function(req, res) {
   res.redirect("/users");
 });
 
-router.get("/users/create", function(req, res) {
+router.get("/create", function(req, res) {
   res.render("create");
 });
-router.post("/users/create", function(req, res) {
+router.post("/create", function(req, res) {
   var newname = req.body.name; //{name: abc}
   var newage = req.body.age; //{age: abc}
   db.get("users")
