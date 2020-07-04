@@ -55,45 +55,7 @@ app.post("/books/delete/:title", function(req, res) {
   res.redirect("/books");
 });
 //Users
-app.get("/users", function(req, res) {
-  res.render("users", { users: db.get("users").value() });
-});
-app.get("/users/update/:name", function(req, res) {
-  var name = req.params.name;
-  res.render("update", { name: name });
-});
-app.post("/users/update/:name", function(req, res) {
-  var oldname = req.params.name;
-  var newname = req.body.name; //{name: abc}
-  var newage = req.body.age; //{age: abc}
 
-  db.get("users")
-    .find({ name: oldname })
-    .assign({ name: newname, age: newage })
-    .write();
-
-  res.redirect("/users");
-});
-
-app.post("/users/delete/:name", function(req, res) {
-  var oldname = req.params.name;
-  db.get("users")
-    .remove({ name: oldname })
-    .write();
-  res.redirect("/users");
-});
-
-app.get("/users/create", function(req, res) {
-  res.render("create");
-});
-app.post("/users/create", function(req, res) {
-  var newname = req.body.name; //{name: abc}
-  var newage = req.body.age; //{age: abc}
-  db.get("users")
-    .push(req.body)
-    .write();
-  res.redirect("/users");
-});
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
