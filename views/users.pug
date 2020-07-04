@@ -4,24 +4,9 @@ h3 Users
 ul
   each val in users
     li= val.name
-    span 
-      form(action="/books/update/" + val.title, method="POST")
-        label Update : 
-        input(type="text", name="title", value="Write something here" )
-        br
-        button UPDATE
-      form(action="/books/delete/" + val.title, method="POST")
-        label Delete :
-        br
-        button DELETE
-h3 Create user
-form(action="#", method="POST")
-  label Name  
-  input(type="text", name="name")
-  br
-  br
-  label Age 
-  input(type="number", name="age")
-  br
-  br
-  button Create
+    span
+      a(href="/users/delete/:" + val.name) Delete 
+      span &nbsp
+      a(href="/users/delete/:" + val.name) Update
+a(href="/users/create") Add users
+
