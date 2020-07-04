@@ -15,12 +15,16 @@
   ],
   "users": [
     {
-      "name": "Nam",
-      "age": 21
+      "name": "daniel",
+      "age": "25"
     },
     {
       "name": "Duy Phuong",
       "age": "19"
+    },
+    {
+      "name": "Nguyễn Thanh Tân",
+      "age": "27"
     }
   ]
 }

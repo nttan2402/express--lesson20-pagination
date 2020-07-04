@@ -42,7 +42,7 @@ app.post("/books/delete/:title", function(req, res) {
   res.redirect("/books");
 });
 //Users
-app.use()
+app.use("/users", usersRoute);
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);

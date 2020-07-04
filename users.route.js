@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var db = require('./db');
 
-router.get("/users", function(req, res) {
+router.get("/", function(req, res) {
   res.render("users", { users: db.get("users").value() });
 });
 router.get("/update/:name", function(req, res) {
