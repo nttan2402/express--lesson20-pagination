@@ -5,8 +5,8 @@ ul
   each val in users
     li= val.name
     span
-      a(href="/users/delete/:" + val.name) Delete 
+      a(href="/users/delete/" + val.name) Delete 
       span &nbsp
-      a(href="/users/update/:" + val.name) Update
+      a(href="/users/update/" + val.name) Update
 a(href="/users/create") Add users
 

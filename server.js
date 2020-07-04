@@ -60,9 +60,24 @@ app.get("/users", function(req, res) {
   res.render("users", { users: db.get("users").value() });
 });
 app.get("/users/update/:name" , function(req, res){
-  var name = 
-  res.render("update", {name:})
+  var name = req.params.name;
+  res.render("update", {name: name})
 });
+app.post("/users/update/:name", function(req, res){
+  var oldname = req.params.name;
+  var oldage = req.params.age;
+  var newname = req.body.name; //{name: abc}
+  var newage = req.body.age; //{age: abc}
+    db.get("users")
+    .find({ title: oldname })
+    .assign({ title: newname })
+    .write();
+    db.get("users")
+      .find({ title: oldage })
+      .assign({ title: newage })
+      .write();
+  res.redirect('/users');
+})
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {

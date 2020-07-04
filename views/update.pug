@@ -1,7 +1,7 @@
 h1 Update users
 
-h3 hello #{}
-form(action="#", method="POST")
+h3 hello #{name}
+form(action="/users/update/" + name, method="POST")
   label Name : 
   input(type="text", name="name")
   br
