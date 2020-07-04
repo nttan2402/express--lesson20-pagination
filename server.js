@@ -51,6 +51,11 @@ app.post("/books/delete/:title",function(req, res){
   db.get("databooks").remove({title: title}).write();
   res.redirect('/books');
 })
+//Users
+app.get("/users", function(req, res) {
+  res.render("users", { databooks: db.get("databooks").value() });
+});
+
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
