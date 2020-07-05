@@ -15,12 +15,13 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
 app.set("views", "./views");
 app.set("view engine", "pug");
-
+//Books
 app.use("/books", booksRoute);
 //Users
 app.use("/users", usersRoute);
-
+//Transactions
 app.use("/transactions", transactionRoute);
+
 // listen for requests :)
 
 const listener = app.listen(process.env.PORT, () => {

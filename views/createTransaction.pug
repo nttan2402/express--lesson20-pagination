@@ -1,8 +1,8 @@
 h1 Create Transaction
 
-form(action="/transaction/create", method="POST")
+form(action="/transactions/create", method="POST")
     label Users: 
-    select(name="User")
+    select(name="user")
       ul
         each val in users
           option(value= val.name)= val.name
