@@ -7,6 +7,7 @@ var express = require("express");
 var db = require("./db");
 var booksRoute = require("./books.route");
 var usersRoute = require("./users.route");
+var transactionRoute = require("./transaction.");
 // our default array of dreams
 
 var app = express();
@@ -18,7 +19,10 @@ app.set("view engine", "pug");
 app.use("/books", booksRoute);
 //Users
 app.use("/users", usersRoute);
+
+app.use("/transactions", transactionRoute);
 // listen for requests :)
+
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
