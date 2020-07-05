@@ -7,7 +7,7 @@ router.get("/", function(req, res){
   res.render("transactions", {transactions: db.get("transactions").value()})
 })
 router.get("/create", function(req, res){
-  res.render("createTransaction",)
+  res.render("createTransaction")
 })
 
 
