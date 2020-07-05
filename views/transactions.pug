@@ -1,5 +1,8 @@
 h1 List Transactions
 
 ul
-  each val in transactions
-    li= val
+  each value, index in transactions
+    li
+      ul
+        each val in value
+          li=val
