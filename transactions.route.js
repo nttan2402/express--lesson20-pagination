@@ -1,13 +1,13 @@
 var express = require('express')
 var router = express.Router()
-var db = require('./db.json')
+var db = require("./db")
 var shortid = require('shortid')
 
 router.get("/", function(req, res){
-  res.render("transactions", db.get("transactions").value())
+  res.render("transactions", {transactions: db.get("transactions").value()})
 })
 router.get("/create", function(req, res){
-  res.render
+  res.render("createTransaction",)
 })
 
 

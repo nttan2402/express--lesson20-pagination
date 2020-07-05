@@ -43,5 +43,12 @@
       "id": "6CUvnjkIK"
     }
   ],
+  "transactions": [
+    {
+      "idUser": "2rn23dq",
+      "idBook": "12dncdj",
+      "id": "asdjnk1"
+    }
+  ],
   "transaction": []
 }
