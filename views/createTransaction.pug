@@ -3,12 +3,16 @@ h1 Create Transaction
 form(action="/transaction/create", method="POST")
     label Users: 
     select(name="User")
-      option()
+      ul
+        each val in users
+          option(value= val.name)= val.name
     br
     br
     label Books:
     select(name="book")
-      option
+      ul
+        each val in databooks
+          option(value= val.title)= val.title
     br
     br
     button Create

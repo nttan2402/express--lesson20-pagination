@@ -7,13 +7,8 @@ router.get("/", function(req, res){
   res.render("transactions", {transactions: db.get("transactions").value()})
 })
 router.get("/create", function(req, res){
-  res.render("createTransaction", {transactions: db.get("transactions").value(),
-                                  databooks: db.get("databooks").value(),
+  res.render("createTransaction", {databooks: db.get("databooks").value(),
                                   users: db.get("users").value()})
-  var databooks = db.get("databooks").value();
-  
-  
-})
-
-
+});
+router.post("")
 module.exports = router;
