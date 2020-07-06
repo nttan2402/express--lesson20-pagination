@@ -7,7 +7,7 @@ var db = low(adapter);
 db.defaults({
   databooks: [],
   users: [],
-  transaction:[]
+  transaction: []
 }).write();
 
 module.exports = db;

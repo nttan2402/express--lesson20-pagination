@@ -8,11 +8,13 @@ module.exports.index = function(req, res) {
 module.exports.create = function(req, res) {
   res.render("createTransaction", {
     databooks: db.get("databooks").value(),
-    users: db.get("users").value()
+    users: db.get("users").value(),
+    isComplete: db.get("transactions").value()
   });
 };
 module.exports.postCreate = function(req, res){
   req.body.id = shortid.generate();
+  req.body.isComplete = false;
   db.get("transactions").push(req.body).write();
   res.redirect("/transactions")
 }
