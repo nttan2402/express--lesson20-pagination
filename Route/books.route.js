@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var shortid = require("shortid");
-var db = require("./db");
+var db = require("../db");
 
 router.get("/", function(req, res) {
   res.render("index", { databooks: db.get("databooks").value() });

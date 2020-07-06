@@ -5,9 +5,9 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 var express = require("express");
 var db = require("./db");
-var booksRoute = require("./books.route");
-var usersRoute = require("./users.route");
-var transactionRoute = require("./transactions.route");
+var booksRoute = require("./Route/books.route");
+var usersRoute = require("./Route/users.route");
+var transactionRoute = require("./Route/transactions.route");
 // our default array of dreams
 
 var app = express();
