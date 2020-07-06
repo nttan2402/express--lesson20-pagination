@@ -69,28 +69,32 @@
     {
       "idUser": "2rn23dq",
       "idBook": "12dncdj",
-      "id": "asdjnk1"
+      "id": "asdjnk1",
+      "isComplete": "false"
     },
     {
       "user": "Hanh legoo",
       "book": "mother",
-      "id": "7yhGvFzlq"
+      "id": "7yhGvFzlq",
+      "isComplete": "false"
     },
     {
       "user": "Hanh legoo",
       "book": "mother",
-      "id": "iDPcA2NWQd"
+      "id": "iDPcA2NWQd",
+      "isComplete": "false"
     },
     {
       "user": "daniel",
       "book": "hahaha",
-      "id": "dho9aAuz2"
+      "id": "dho9aAuz2",
+      "isComplete": "false"
     },
     {
       "user": "Cuong AV",
       "book": "aasd ",
       "id": "O6yU9pwrV",
-      "isComplete": false
+      "isComplete": "false"
     }
   ],
   "transaction": []
