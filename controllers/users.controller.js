@@ -1,3 +1,4 @@
+
 var db = require("../db");
 var shortid = require("shortid");
 
@@ -22,10 +23,10 @@ module.exports.postDelete = function(req, res) {
     .write();
   res.redirect("/users");
 }
-module.export.create = function(req, res) {
+module.exports.create = function(req, res) {
   res.render("create");
 }
-module.export.postCreate = function(req, res) {
+module.exports.postCreate = function(req, res) {
   req.body.id = shortid.generate();
   db.get("users")
     .push(req.body)
