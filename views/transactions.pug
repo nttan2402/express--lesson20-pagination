@@ -7,8 +7,8 @@ ul
         form(action="/transactions/" + value.id + "/complete", method="POST")
           label Is Complete: 
           select(name="isComplete")
-            option(value= true) True
-            option(value= false) False
+            option(value= "true") True
+            option(value= "false") False
           button Change
         each val, key in value
           li=key + ': ' + val

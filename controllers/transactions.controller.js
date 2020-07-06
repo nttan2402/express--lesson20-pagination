@@ -18,6 +18,11 @@ module.exports.postCreate = function(req, res){
   db.get("transactions").push(req.body).write();
   res.redirect("/transactions")
 }
-module.exports.isComplete = function () {
-  
+module.exports.isComplete = function (req, res) {
+  res.send(req.params)
+  // res.send(req.body) //iscomple: true
+  // db.get('transactions')
+  // .find({ title: 'low!' })
+  // .assign({ title: 'hi!'})
+  // .write()
 }
