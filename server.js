@@ -15,6 +15,9 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
 app.set("views", "./views");
 app.set("view engine", "pug");
+app.get("/", function(req, res){
+  res.render("home")
+})
 //Books
 app.use("/books", booksRoute);
 //Users

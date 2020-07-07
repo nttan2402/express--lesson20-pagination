@@ -1,14 +1,17 @@
-h1 Users manager
+extends ../layout/common
 
-h3 Users
-ul
-  each val in users
-    li= val.name
-    span
-      form(action="/users/delete/" + val.name, method="POST")
-        button DELETE
-      form(action="/users/update/" + val.name, method="GET")
-        button UPDATE
-      
-a(href="/users/create") Add users
+block content
+  h1 Users manager
+
+  h3 Users
+  ul
+    each val in users
+      li= val.name
+      span
+        form(action="/users/delete/" + val.name, method="POST")
+          button DELETE
+        form(action="/users/update/" + val.name, method="GET")
+          button UPDATE
+
+  a(href="/users/create") Add users
 
