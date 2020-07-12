@@ -13,6 +13,7 @@ var transactionRoute = require("./Route/transactions.route");
 var app = express();
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'))
 app.set("views", "./views");
 app.set("view engine", "pug");
 app.get("/", function(req, res){
