@@ -7,7 +7,6 @@ block content
     each value, index in transactions
       li= 'Transaction: ' + index
         ul
-          
           form(action="/transactions/" + value.id + "/complete", method="POST")
             label Is Complete: 
             select(name="isComplete")
