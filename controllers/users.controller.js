@@ -27,6 +27,11 @@ module.exports.create = function(req, res) {
   res.render("create");
 }
 module.exports.postCreate = function(req, res) {
+  var name = req.body.name;
+  if(req.body.name.length >= 31) {
+    
+  }
+  
   req.body.id = shortid.generate();
   db.get("users")
     .push(req.body)

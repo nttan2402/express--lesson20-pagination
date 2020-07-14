@@ -28,14 +28,6 @@
   ],
   "users": [
     {
-      "name": "daniel",
-      "age": "25"
-    },
-    {
-      "name": "Duy Phuong",
-      "age": "19"
-    },
-    {
       "name": "Nguyễn Thanh Tân",
       "age": "27"
     },
@@ -63,6 +55,16 @@
       "name": "huy gay",
       "age": "27",
       "id": "2RoOcqWvW"
+    },
+    {
+      "name": "i like tea but i love coffee",
+      "age": "27",
+      "id": "vaULVcVo7"
+    },
+    {
+      "name": "Nguyễn Thanh Tân",
+      "age": "27",
+      "id": "L6ZHaOy_q"
     }
   ],
   "transactions": [
