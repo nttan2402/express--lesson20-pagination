@@ -27,9 +27,12 @@ module.exports.create = function(req, res) {
   res.render("create");
 }
 module.exports.postCreate = function(req, res) {
-  var name = req.body.name;
-  if(req.body.name.length >= 31) {
+  var errors = [];
     
+  if(req.body.name.length >= 31) {
+    errors.push('the Length of the name is greater 30 characters');
+    
+    res.render()
   }
   
   req.body.id = shortid.generate();
