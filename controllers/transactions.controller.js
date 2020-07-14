@@ -4,9 +4,6 @@ var shortid = require("shortid");
 module.exports.index = function(req, res) {
   res.render("transactions", { transactions: db.get("transactions").value() });
 };
-module.exports.index = function(req, res) {
-  res.render("transactions", { transactions: db.get("transactions").value() });
-};
 module.exports.create = function(req, res) {
   res.render("createTransaction", {
     databooks: db.get("databooks").value(),
