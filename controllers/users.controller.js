@@ -32,7 +32,10 @@ module.exports.postCreate = function(req, res) {
   if(req.body.name.length >= 31) {
     errors.push('the Length of the name is greater 30 characters');
     
-    res.render()
+    res.render("create", {
+      errors: errors
+    });
+    return;
   }
   
   req.body.id = shortid.generate();
