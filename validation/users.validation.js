@@ -16,7 +16,7 @@ module.exports.postCreate = function (req, res, next) {
     return;
   }
   if(req.body.name.length >= 31) {
-    errors.push('the Length of the name is greater 30 characters');
+    errors.push('The length of the name is greater 30 characters');
     res.render("create", {
       errors: errors
     });
