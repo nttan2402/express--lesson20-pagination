@@ -14,7 +14,7 @@ var usersRoute = require("./Route/users.route");
 var transactionRoute = require("./Route/transactions.route");
 var cookieParser = require('cookie-parser');
 // our default array of dreams
-var count = 0;
+var count = 0; 
 var app = express();
 app.use(cookieParser());
 app.use(express.json()); // for parsing application/json
@@ -25,7 +25,6 @@ app.set("view engine", "pug");
 app.get("/", function(req, res){
 	res.cookie('users-id', shortid.generate());
   	res.render("home");
-  console.log(req.cookies);
   	if(req.cookies) {
   		count++;
   	}
