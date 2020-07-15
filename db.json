@@ -28,15 +28,6 @@
   ],
   "users": [
     {
-      "name": "Nguyễn Thanh Tân",
-      "age": "27"
-    },
-    {
-      "name": "hung",
-      "age": "15",
-      "id": "gIZC6j4QF"
-    },
-    {
       "name": "Pham thi huong",
       "age": "14",
       "id": "6CUvnjkIK"
@@ -47,11 +38,6 @@
       "id": "MCNx51Emx"
     },
     {
-      "name": "Hanh legoo",
-      "age": "24",
-      "id": "Adva6uwAJ"
-    },
-    {
       "name": "huy gay",
       "age": "27",
       "id": "2RoOcqWvW"
@@ -60,11 +46,6 @@
       "name": "i like tea but i love coffee",
       "age": "27",
       "id": "vaULVcVo7"
-    },
-    {
-      "name": "Nguyễn Thanh Tân",
-      "age": "27",
-      "id": "L6ZHaOy_q"
     }
   ],
   "transactions": [
