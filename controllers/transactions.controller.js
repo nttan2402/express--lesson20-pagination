@@ -2,10 +2,11 @@ var db = require("../db");
 var shortid = require("shortid");
 
 module.exports.index = function(req, res) {
-  res.render("transactions", { transactions: db.get("transactions").value() });
+  res.render("./transactions/transactions", { transactions: db.get("transactions").value() });
 };
+
 module.exports.create = function(req, res) {
-  res.render("createTransaction", {
+  res.render("./transactions/createTransaction", {
     databooks: db.get("databooks").value(),
     users: db.get("users").value(),
     isComplete: db.get("transactions").value()
@@ -18,7 +19,7 @@ module.exports.postCreate = function(req, res){
   res.redirect("/transactions")
 }
 module.exports.isComplete = function (req, res) {
-  var abv= db.get('transactions')
+  db.get('transactions')
   .find(req.params)
   .assign(req.body)
   .write();

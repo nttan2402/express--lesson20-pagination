@@ -1,0 +1,16 @@
+extends ../../layout/common
+
+block content
+		h1 Update users
+
+		h3 hello #{oldname}
+		form(action="/users/update/" + id, method="POST")
+			label Name : 
+			input(type="text", name="name")
+			br
+			br
+			label Age : 
+			input(type="number", name="age")
+			br
+			br
+			button UPDATE

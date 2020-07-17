@@ -3,31 +3,41 @@ var db = require("../db");
 var shortid = require("shortid");
 
 module.exports.index = function(req, res) {
-  res.render("users", { users: db.get("users").value() });
+  res.render("./users/users", { users: db.get("users").value() });
 } 
 
 module.exports.update = function(req, res) {
-  res.render("update", { name: req.params.name });
+  var user = db.get("users")
+              .find({ id: req.params.id })
+              .value();
+  res.render("./users/update", { oldname: user.name,
+                                  id: user.id
+                                  });
 }
+
 module.exports.postUpdate = function(req, res) {
-  req.body.id = shortid.generate();
   db.get("users")
-    .find({ name: req.params.name })
+    .find({ id: req.params.id })
     .assign(req.body)
     .write();
   res.redirect("/users");
 }
+
 module.exports.postDelete = function(req, res) {
   db.get("users")
-    .remove({ name: req.params.name })
+    .remove({ id: req.params.id })
     .write();
   res.redirect("/users");
 }
+
 module.exports.create = function(req, res) {
-  res.render("create");
+  res.render("./users/create");
 }
+
 module.exports.postCreate = function(req, res) {
   req.body.id = shortid.generate();
+  req.body.password = "123123";
+  req.body.isAdmin = false;
   db.get("users")
     .push(req.body)
     .write();
