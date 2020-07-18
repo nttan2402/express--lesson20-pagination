@@ -1,3 +1,5 @@
+var md5 = require('md5');
+
 var db = require("../db");
 var shortid = require("shortid");
 
@@ -9,7 +11,7 @@ module.exports.postLogin = function(req, res) {
 
 	var user = req.body.user; 
 	var password = req.body.password;
-
+  var hashpassword = md5(password);
 	var match = db.get("users").find({name : user}).value();
 
 	if(!match) {
@@ -22,7 +24,7 @@ module.exports.postLogin = function(req, res) {
 		return;// if false return immediately and not run into logic below
 	}
 
-	if(match.password !== password) {
+	if(match.password !== hashpassword) {
 		res.render("login/login", {
 			errors: [
 			"Wrong password."
