@@ -20,8 +20,9 @@ var authAdmin = require("./middleware/middleware.admin");
 // our default array of dreams
 var count = 0;
 var app = express();
+var randomString = shortid.generate();
 
-app.use(cookieParser());
+app.use(cookieParser(randomString));
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -44,7 +45,7 @@ app.use("/books", booksRoute);
 //Users
 app.use("/users", authLogin.requireAuth, usersRoute);
 //Transactions
-app.use("/transactions", authAdmin.admin, transactionRoute);
+app.use("/transactions", authLogin.requireAuth, authAdmin.admin, transactionRoute);
 
 // listen for requests :)
 
