@@ -1,3 +1,5 @@
+const sgMail = require('@sendgrid/mail');
+
 var md5 = require('md5');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -51,6 +53,20 @@ module.exports.postLogin = function(req, res) {
 		res.redirect("/users"); // redirect to users url include cookie. 
 		//it is checked by the middleware of the user link
 	}else {
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+			const msg = {
+			  to: match.email, //getdata
+			  from: 'abcdef@gmail.com',
+			  subject: 'Your account is blocked',
+			  text: 'Your account is blocked cause wrong too much',
+			  html: '<strong>Your account is blocked cause wrong too much</strong>',
+			};
+			sgMail.send(msg, function(error, info){
+				if(error){
+					return console.log(error);
+				}
+				console.log('send success!')
+			});
 			res.render("login/login", {
 				errors: [
 				"Your account is blocked"
